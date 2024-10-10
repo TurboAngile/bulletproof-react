@@ -11,11 +11,15 @@ module.exports = {
     'generators/*',
   ],
   extends: ['eslint:recommended'],
-  plugins: ['check-file'],
+  plugins: ['check-file', 'react-naming-convention'],
   overrides: [
     {
       files: ['**/*.ts', '**/*.tsx'],
       parser: '@typescript-eslint/parser',
+      parserOptions: {
+        // this setting is required to use rules that require type information
+        project: true,
+      },
       settings: {
         react: { version: 'detect' },
         'import/resolver': {
@@ -40,7 +44,7 @@ module.exports = {
         'plugin:testing-library/react',
         'plugin:jest-dom/recommended',
         'plugin:tailwindcss/recommended',
-        'plugin:vitest/legacy-recommended',
+        'plugin:vitest/legacy-recommended'
       ],
       rules: {
         'import/no-restricted-paths': [
@@ -126,14 +130,25 @@ module.exports = {
         '@typescript-eslint/no-empty-function': ['off'],
         '@typescript-eslint/no-explicit-any': ['off'],
         'prettier/prettier': ['error', {}, { usePrettierrc: true }],
-        'check-file/filename-naming-convention': [
-          'error',
+        // 'check-file/filename-naming-convention': [
+        //   'error',
+        //   {
+        //     '**/*.{ts,tsx}': 'KEBAB_CASE',
+        //   },
+        //   {
+        //     ignoreMiddleExtensions: true,
+        //   },
+        // ],
+        "react-naming-convention/component-name": ["warn", "PascalCase"],
+        "react-naming-convention/filename": ["warn", "kebab-case"],
+        '@typescript-eslint/naming-convention': [
+          'warn',
           {
-            '**/*.{ts,tsx}': 'KEBAB_CASE',
-          },
-          {
-            ignoreMiddleExtensions: true,
-          },
+            selector: 'variableLike',
+            leadingUnderscore: 'allow',  // 前置下划线
+            trailingUnderscore: 'allow', // 后置下划线
+            format: ['camelCase', 'PascalCase', 'UPPER_CASE']
+          }
         ],
       },
     },
