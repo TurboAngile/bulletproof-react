@@ -6,3 +6,4 @@
 # misc
 .DS_Store
 /apps/react-vite/pnpm-lock.yaml
+.idea
