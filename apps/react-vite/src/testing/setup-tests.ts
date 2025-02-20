@@ -2,7 +2,7 @@ import '@testing-library/jest-dom/vitest';
 
 import { initializeDb, resetDb } from '@/testing/mocks/db';
 import { server } from '@/testing/mocks/server';
-
+import '../i18n/i18n';
 vi.mock('zustand');
 
 beforeAll(() => server.listen({ onUnhandledRequest: 'error' }));

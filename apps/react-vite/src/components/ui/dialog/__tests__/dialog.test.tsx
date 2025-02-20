@@ -20,7 +20,6 @@ const titleText = 'Modal Title';
 const TestDialog = () => {
   const { close, open, isOpen } = useDisclosure();
   const cancelButtonRef = React.useRef(null);
-
   return (
     <Dialog
       open={isOpen}
@@ -35,7 +34,7 @@ const TestDialog = () => {
       <DialogTrigger asChild>
         <Button variant="outline">{openButtonText}</Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[425px]">
+      <DialogContent className="sm:max-w-[425px]" aria-describedby={''}>
         <DialogHeader>
           <DialogTitle>{titleText}</DialogTitle>
         </DialogHeader>
