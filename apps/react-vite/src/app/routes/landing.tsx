@@ -28,7 +28,7 @@ export const LandingRoute = () => {
           <img src={logo} alt="react" />
           <p>Showcasing Best Practices For Building React Applications</p>
           <div className="mt-8 flex justify-center">
-            <div className="inline-flex rounded-md shadow">
+            <div className="inline-flex rounded-md shadow-sm">
               <Button
                 onClick={handleStart}
                 icon={
